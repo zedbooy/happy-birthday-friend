@@ -1,0 +1,40 @@
+body {
+  background: linear-gradient(to top, #ffd1dc, #ffe4e1);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #ff1493;
+  font-size: 3em;
+}
+
+.photo {
+  width: 250px;
+  border-radius: 20px;
+  margin: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.message {
+  font-size: 1.5em;
+  color: #8b008b;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  border-radius: 10px;
+  background-color: #ff69b4;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
