@@ -3,19 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <title>Happy Birthday, Marissa!</title>
-  <link rel="stylesheet" href="styles/main.css"> <!-- updated path -->
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
+  <canvas id="animationCanvas"></canvas>
   <div class="container">
-    <h1>🎉 Happy Birthday, MARISSA ! 🎉</h1>
-    <img src="images/friend1.jpg" alt="Friend Photo" class="photo">
+    <h1>
+      🎉 Happy Birthday, 
+      <span class="name-animated rainbow-text" id="rainbowName">MARISSA</span>
+      ! 🎉
+    </h1>
+    <div class="gift-box" id="giftBox" title="Click me!"></div>
+    <img src="images/friend1.jpg" alt="Friend Photo" class="photo" id="flipPhoto">
     <p class="message">Wishing you joy, love, and endless fun on your special day!</p>
-
     <button onclick="playSong()">▶️ Play Song</button>
-    <canvas id="animationCanvas"></canvas>
   </div>
-
   <audio id="birthdaySong" src="song/happy_birthday.mp3"></audio>
-  <script src="scripts/main.js"></script> <!-- updated path -->
+  <script src="scripts/main.js"></script>
 </body>
 </html>

@@ -1,40 +1,139 @@
 body {
-  background: linear-gradient(to top, #ffd1dc, #ffe4e1);
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.container {
   text-align: center;
-  padding: 20px;
+  margin-top: 40px;
 }
 
 h1 {
-  color: #ff1493;
-  font-size: 3em;
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+.rainbow-text {
+  font-weight: bold;
+  padding: 0 8px;
+  border-radius: 8px;
+  display: inline-block;
+  animation: rainbow 2s linear infinite, moveName 3s infinite alternate ease-in-out;
+}
+
+@keyframes rainbow {
+  0% { color: #ff3cac; }
+  20% { color: #784ba0; }
+  40% { color: #fff176; }
+  60% { color: #43e97b; }
+  80% { color: #38f9d7; }
+  100% { color: #ff3cac; }
+}
+
+@keyframes moveName {
+  0% { transform: translateX(-30px);}
+  100% { transform: translateX(30px);}
+}
+
+.gift-box {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  margin: 20px auto 20px auto;
+  background: #ff3cac;
+  border-radius: 10px 10px 8px 8px;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(255, 62, 172, 0.2);
+  cursor: pointer;
+  animation: popGift 1s cubic-bezier(.68,-0.55,.27,1.55) 1;
+}
+.gift-box::before, .gift-box::after {
+  content: '';
+  position: absolute;
+  background: #fff176;
+}
+.gift-box::before {
+  width: 16px;
+  height: 60px;
+  left: 22px;
+  top: 0;
+  border-radius: 8px;
+}
+.gift-box::after {
+  width: 60px;
+  height: 16px;
+  left: 0;
+  top: 22px;
+  border-radius: 8px;
+}
+.gift-box.opened {
+  background: #43e97b;
+  animation: none;
+}
+.gift-box.opened::before,
+.gift-box.opened::after {
+  background: #fff;
+}
+
+@keyframes popGift {
+  0% { transform: scale(0); }
+  70% { transform: scale(1.2);}
+  100% { transform: scale(1);}
 }
 
 .photo {
-  width: 250px;
-  border-radius: 20px;
-  margin: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #fff176;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  margin-bottom: 1em;
+  animation: floatPhoto 2.5s ease-in-out infinite alternate;
+  transition: transform 0.6s;
+  backface-visibility: hidden;
+}
+
+@keyframes floatPhoto {
+  0% { transform: translateY(0);}
+  100% { transform: translateY(-30px);}
+}
+
+.photo.flipped {
+  transform: rotateY(180deg);
 }
 
 .message {
-  font-size: 1.5em;
-  color: #8b008b;
+  font-size: 1.2em;
+  color: #333;
+  margin-bottom: 1.5em;
 }
 
 button {
-  padding: 10px 20px;
-  font-size: 1.2em;
-  border-radius: 10px;
-  background-color: #ff69b4;
-  color: white;
+  background: #ff3cac;
+  color: #fff;
   border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 1.1em;
   cursor: pointer;
+  box-shadow: 0 4px 16px rgba(255, 62, 172, 0.2);
+  transition: background 0.2s;
 }
 
-canvas {
-  position: absolute;
-  top: 0;
+button:hover {
+  background: #784ba0;
+}
+
+#animationCanvas {
+  position: fixed;
   left: 0;
+  top: 0;
   pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
 }
